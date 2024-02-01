@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  scroll-behaviour: smooth;
+}
+
+.hero {
+  background-image: linear-gradient(to right bottom, #00000063, transparent);
+  height: 100%;
+  z-index: -2;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  animation: scaleAnimation 5s infinite linear; /* Adjust duration and iteration as needed */
+  transform-origin: bottom left; /* Set the transform origin to the left side */
+}
+
+.nav-link {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  display: inline-block;
+  padding-inline: 5px;
+}
+
+.nav-link::before {
+  content: "";
+  position: absolute;
+  background: #fff;
+  opacity: 0.6;
+  height: 0;
+  width: 100%;
+  right: -1px;
+  top: -25px;
+  z-index: 1;
+  padding-inline: 10px;
+  clip-path: polygon(0 0, 100% 0%, 100% 76%, 0 100%);
+  transition: height 300ms linear; /* Added transition property */
+  transform-origin: left center;
+}
+.nav-link:hover {
+  color: #555 !important;
+  z-index: 2;
+}
+.nav-link:hover::before {
+  height: 110px;
+  z-index: -1;
+}
+
+.bg-scroll-icon {
+  background: #00000069;
+}
+.text-body {
+  color: #555;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.border-design {
+  padding: 20px 15px;
+  border: 8px solid #f2f2f2;
+  border-radius: 50%;
+  border-width: 75%;
+  position: relative;
+}
+
+.quote::before {
+  content: "";
+}
+
+.lineheightnormal {
+  line-height: 1.1 !important;
+}
+
+.cta-bg-image {
+  background-image: linear-gradient(to right bottom, #00000063, #000000c2),
+    url("../public/assets/hero-img-1.webp");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.bg-footer-img {
+  background-image: linear-gradient(to right bottom, #000000a8, #000000c2),
+    url("../public/assets/hero-img-1.webp");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.banner-small {
+  background-image: linear-gradient(to right bottom, #00000063, #000000c2),
+    url("../public/assets/hero-img-3.webp");
+  background-position: center;
+  background-size: cover;
+  /* clip-path: polygon(0% 0, 100% 0, 100% 85%, 0% 100%); */
+  z-index: 0;
+  position: relative;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  height : 360px;
+}
+
+.review-clamp {
+   display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+
+}
+@layer components {
+  .header-social-icons {
+    @apply cursor-pointer hover:scale-150 duration-150 ease-linear;
+  }
+
+  .heading-secondary {
+    @apply text-center md:text-start text-4xl sm:text-5xl  md:text-7xl lg:text-8xl font-bold text-gray-800 pb-12  border-b border-gray-400;
+  }
+
+  .heading-description {
+    @apply text-2xl md:text-3xl text-gray-700 font-medium;
+  }
+}
+
+/*** hero image animation***/
+@keyframes scaleAnimation {
+  0% {
+    transform: scale(1);
+  }
+  20% {
+    transform: scale(1.03); /* Adjust the scale factor as needed */
+  }
+  50% {
+    transform: scale(1.05); /* Adjust the scale factor as needed */
+  }
+  80% {
+    transform: scale(1.08); /* Adjust the scale factor as needed */
+  }
+  100% {
+    transform: scale(1.1); /* Adjust the scale factor as needed */
+  }
+}
